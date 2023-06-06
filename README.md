@@ -17,7 +17,7 @@ dependencies {
 
 ### Maven
 
-```maven
+```pom.xml
 ...
 <properties>
     <org.mapstruct.version>1.5.5.Final</org.mapstruct.version>
