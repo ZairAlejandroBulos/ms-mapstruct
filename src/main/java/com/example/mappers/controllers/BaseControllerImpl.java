@@ -46,10 +46,9 @@ public abstract class BaseControllerImpl<E extends Base, D extends BaseDTO>
     public ResponseEntity<?> delete(@PathVariable Long id) {
         try {
             service.delete(id);
-            return ResponseEntity.status(HttpStatus.OK)
-                    .body("");
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                     .body("{\"error\": \"Error. Por favor intente mas tarde\"}");
         }
     }

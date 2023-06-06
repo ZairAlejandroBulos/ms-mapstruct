@@ -42,7 +42,6 @@ public class PersonaServiceImpl extends BaseServiceImpl<Persona, PersonaDTO, Lon
 
             return personaRepository.save(persona);
         } catch (Exception e) {
-            System.out.println(e.getMessage());
             throw new Exception(e.getMessage());
         }
     }
@@ -69,7 +68,6 @@ public class PersonaServiceImpl extends BaseServiceImpl<Persona, PersonaDTO, Lon
 
             return personaRepository.save(persona);
         } catch (Exception e) {
-            System.out.println(e.getMessage());
             throw new Exception(e.getMessage());
         }
     }
