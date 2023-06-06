@@ -16,23 +16,23 @@ public class PersonaController extends BaseControllerImpl<Persona, PersonaDTO> {
     private PersonaServiceImpl service;
 
     @PostMapping("")
-    public ResponseEntity<?> save(@RequestBody PersonaDTO entity) {
+    public ResponseEntity<?> save(@RequestBody PersonaDTO dto) {
         try {
             return ResponseEntity.status(HttpStatus.CREATED)
-                    .body(service.save(entity));
+                    .body(service.savePersona(dto));
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                     .body("{\"error\": \"Error. Por favor intente mas tarde\"}");
         }
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> update(@PathVariable Long id, @RequestBody PersonaDTO entity) {
+    public ResponseEntity<?> update(@PathVariable Long id, @RequestBody PersonaDTO dto) {
         try {
             return ResponseEntity.status(HttpStatus.CREATED)
-                    .body(service.update(id, entity));
+                    .body(service.updatePersona(id, dto));
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                     .body("{\"error\": \"Error. Por favor intente mas tarde\"}");
         }
     }

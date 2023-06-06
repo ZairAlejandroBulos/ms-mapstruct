@@ -9,6 +9,6 @@ import java.io.Serializable;
 public interface BaseController<E extends Base, ID extends Serializable> {
 
     ResponseEntity<?> getAll();
-    ResponseEntity<?> getOneById(@PathVariable ID id);
-
+    ResponseEntity<?> getById(@PathVariable ID id);
+    ResponseEntity<?> delete(@PathVariable ID id);
 }

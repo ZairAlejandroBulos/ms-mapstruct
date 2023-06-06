@@ -43,17 +43,18 @@ public abstract class BaseServiceImpl<E extends Base, D extends BaseDTO, ID exte
 
     @Override
     @Transactional
-    public E save(D entity) throws Exception {
+    public E save(D dto) throws Exception {
         try {
-            return baseRepository.save(baseMapper.toEntity(entity));
+            return baseRepository.save(baseMapper.toEntity(dto));
         } catch (Exception e) {
+            System.out.println(e.getMessage());
             throw new Exception(e.getMessage());
         }
     }
 
     @Override
     @Transactional
-    public E update(ID id, D entity) throws Exception {
+    public E update(ID id, D dto) throws Exception {
         try {
             Optional<E> optional = baseRepository.findById(id);
 
@@ -61,8 +62,9 @@ public abstract class BaseServiceImpl<E extends Base, D extends BaseDTO, ID exte
                 throw new Exception("No se encontro la entidad a actualizar");
             }
 
-            return baseRepository.save(baseMapper.toEntity(entity));
+            return baseRepository.save(baseMapper.toEntity(dto));
         } catch (Exception e) {
+            System.out.println(e.getMessage());
             throw new Exception(e.getMessage());
         }
     }

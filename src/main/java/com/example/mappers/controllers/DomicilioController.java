@@ -16,10 +16,10 @@ public class DomicilioController extends BaseControllerImpl<Domicilio, Domicilio
     private DomicilioServiceImpl service;
 
     @PostMapping("")
-    public ResponseEntity<?> save(@RequestBody DomicilioDTO entity) {
+    public ResponseEntity<?> save(@RequestBody DomicilioDTO dto) {
         try {
             return ResponseEntity.status(HttpStatus.CREATED)
-                    .body(service.save(entity));
+                    .body(service.save(dto));
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
                     .body("{\"error\": \"Error. Por favor intente mas tarde\"}");
@@ -27,10 +27,10 @@ public class DomicilioController extends BaseControllerImpl<Domicilio, Domicilio
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> update(@PathVariable Long id, @RequestBody DomicilioDTO entity) {
+    public ResponseEntity<?> update(@PathVariable Long id, @RequestBody DomicilioDTO dto) {
         try {
             return ResponseEntity.status(HttpStatus.CREATED)
-                    .body(service.update(id, entity));
+                    .body(service.update(id, dto));
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
                     .body("{\"error\": \"Error. Por favor intente mas tarde\"}");
